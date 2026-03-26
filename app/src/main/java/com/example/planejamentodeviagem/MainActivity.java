@@ -77,6 +77,8 @@ public class MainActivity extends AppCompatActivity {
         int hora = tpVoo.getHour();
         int minuto = tpVoo.getMinute();
         String horarioVoo = hora + ":" + String.format("%02d", minuto);
+        String dataPartida = dpPartida.getDayOfMonth() + "/" + (dpPartida.getMonth() + 1) + "/" + dpPartida.getYear();
+        String dataRetorno = dpRetorno.getDayOfMonth() + "/" + (dpRetorno.getMonth() + 1) + "/" + dpRetorno.getYear();
 
         int idSelecionado = radioGroupTipo.getCheckedRadioButtonId();
         String tipoViagem = "Não definido";
@@ -95,7 +97,8 @@ public class MainActivity extends AppCompatActivity {
         editor.putBoolean("notificacoes", notificacoes);
         editor.putString("tipo", tipoViagem);
         editor.putString("horario", horarioVoo);
-
+        editor.putString("dataPartida", dataPartida);
+        editor.putString("dataRetorno", dataRetorno);
         editor.apply();
 
         Toast.makeText(this, "Planejamento para " + destino + " salvo!", Toast.LENGTH_SHORT).show();
